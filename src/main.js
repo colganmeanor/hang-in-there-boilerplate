@@ -130,7 +130,7 @@ savedPostersButton.addEventListener('click', showSaved)
 backToMain.addEventListener('click', backToMainPage)
 showMyPosterButton.addEventListener('click', makeUserPoster)
 saveMyPosterButton.addEventListener('click', saveThisPoster)
-
+savedPosterGrid.addEventListener('dblclick', deleteSavedPoster)
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
@@ -205,9 +205,20 @@ function addToGrid() {
   savedPosterGrid.innerHTML = ``;
   for (var i = 0; i < savedPosters.length; i++) {
     savedPosterGrid.innerHTML += `
-    <article class= 'mini-poster'>
+    <article class= 'mini-poster' id=${savedPosters[i].id}>
     <img src=${savedPosters[i].imageURL} alt="Nothing here!">
     <h2>${savedPosters[i].title}</h2>
     <h4> ${savedPosters[i].quote}</h4> `
   }
+}
+
+function deleteSavedPoster() {
+  var posterID = event.target.id;
+  var miniPoster = event.target.parentNode.id;
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (`${savedPosters[i].id}` === posterID || `${savedPosters[i].id}` === miniPoster) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  addToGrid();
 }
