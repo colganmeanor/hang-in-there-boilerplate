@@ -1,6 +1,3 @@
-// query selector variables go here 👇
-
-
 var posterImage = document.querySelector('.poster-img');
 var posterTitle = document.querySelector('.poster-title');
 var posterQuote = document.querySelector('.poster-quote');
@@ -20,7 +17,7 @@ var inputTitle = document.querySelector('#poster-title')
 var inputQuote = document.querySelector('#poster-quote')
 var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
-// we've provided you with some data to work with 👇
+
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -78,6 +75,7 @@ var titles = [
   "understanding",
   "wisdom"
 ];
+
 var quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
@@ -118,10 +116,10 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
+
 var savedPosters = [];
 var currentPoster;
 
-// event listeners go here 👇
 window.addEventListener('load', generateRandomPoster)
 randomPosterButton.addEventListener('click', generateRandomPoster)
 showForm.addEventListener('click', makePosterForm)
@@ -132,8 +130,6 @@ showMyPosterButton.addEventListener('click', makeUserPoster)
 saveMyPosterButton.addEventListener('click', saveThisPoster)
 savedPosterGrid.addEventListener('dblclick', deleteSavedPoster)
 
-// functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -146,8 +142,6 @@ function generateRandomPoster(){
   posterTitle.innerText = currentPoster.title
   posterQuote.innerText = currentPoster.quote
 }
-
-
 
 function makePosterForm(){
   mainPoster.classList.add('hidden')
@@ -169,8 +163,6 @@ function backToMainPage(){
   mainPoster.classList.remove('hidden')
 }
 
-
-
 function makeUserPoster(){
   currentPoster = new Poster(inputImage.value, inputTitle.value, inputQuote.value)
   event.preventDefault();
@@ -181,7 +173,7 @@ function makeUserPoster(){
   saveUserData();
 }
 
-// the following function will take the same user inputs as above and save them into their respective arrays
+
 function saveUserData(){
   images.push(inputImage.value);
   titles.push(inputTitle.value);
