@@ -124,8 +124,8 @@ var currentPoster;
 window.addEventListener('load', generateRandomPoster)
 randomPosterButton.addEventListener('click', generateRandomPoster)
 showForm.addEventListener('click', makePosterForm)
-neverMind.addEventListener('click', takeMeBack)
-savedPostersButton.addEventListener('click', showSaved)
+neverMind.addEventListener('click', backToMainPage)
+savedPostersButton.addEventListener('click', showSavedPostersPage)
 backToMain.addEventListener('click', backToMainPage)
 showMyPosterButton.addEventListener('click', makeUserPoster)
 saveMyPosterButton.addEventListener('click', saveThisPoster)
@@ -135,7 +135,6 @@ savedPosterGrid.addEventListener('dblclick', deleteSavedPoster)
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
 
 function generateRandomPoster(){
   currentPoster = new Poster (images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
@@ -149,18 +148,19 @@ function makePosterForm(){
   posterForm.classList.remove('hidden')
 }
 
-function takeMeBack(){
-  posterForm.classList.add('hidden')
-  mainPoster.classList.remove('hidden')
-}
+// function takeMeBack(){
+//   posterForm.classList.add('hidden')
+//   mainPoster.classList.remove('hidden')
+// }
 
-function showSaved(){
+function showSavedPostersPage(){
   mainPoster.classList.add('hidden')
   createdPosters.classList.remove('hidden')
 }
 
 function backToMainPage(){
   createdPosters.classList.add('hidden')
+  posterForm.classList.add('hidden')
   mainPoster.classList.remove('hidden')
 }
 
@@ -170,7 +170,7 @@ function makeUserPoster(){
   posterImage.src = currentPoster.imageURL
   posterTitle.innerText = currentPoster.title
   posterQuote.innerText = currentPoster.quote
-  takeMeBack();
+  backToMainPage();
   saveUserData();
 }
 
@@ -184,7 +184,7 @@ function saveThisPoster(){
   if(!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
   }
-  showSaved();
+  showSavedPostersPage();
   addToGrid();
 }
 
