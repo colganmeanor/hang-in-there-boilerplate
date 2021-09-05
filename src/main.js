@@ -148,11 +148,6 @@ function makePosterForm(){
   posterForm.classList.remove('hidden')
 }
 
-// function takeMeBack(){
-//   posterForm.classList.add('hidden')
-//   mainPoster.classList.remove('hidden')
-// }
-
 function showSavedPostersPage(){
   mainPoster.classList.add('hidden')
   createdPosters.classList.remove('hidden')
