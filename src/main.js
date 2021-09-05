@@ -38,6 +38,7 @@ var images = [
   "./assets/tiger.jpg",
   "./assets/turtle.jpg"
 ];
+
 var titles = [
   "determination",
   "success",
@@ -172,7 +173,6 @@ function makeUserPoster(){
   takeMeBack();
   saveUserData();
 }
-
 
 function saveUserData(){
   images.push(inputImage.value);
