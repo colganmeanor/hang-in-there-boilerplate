@@ -131,6 +131,7 @@ backToMain.addEventListener('click', backToMainPage)
 showMyPosterButton.addEventListener('click', makeUserPoster)
 saveMyPosterButton.addEventListener('click', saveThisPoster)
 savedPosterGrid.addEventListener('dblclick', deleteSavedPoster)
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
@@ -178,10 +179,6 @@ function makeUserPoster(){
   posterQuote.innerText = currentPoster.quote
   takeMeBack();
   saveUserData();
-  console.log('images array', images)
-  console.log('titles array', titles)
-  console.log('quotes array', quotes)
-  console.log(currentPoster)
 }
 
 // the following function will take the same user inputs as above and save them into their respective arrays
@@ -195,8 +192,6 @@ function saveThisPoster(){
   if(!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
   }
-  console.log(currentPoster);
-  console.log('saved poster array', savedPosters)
   showSaved();
   addToGrid();
 }
